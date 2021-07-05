@@ -595,6 +595,17 @@ namespace ShareX
                 {
                     imageEffect = RandomFast.Pick(taskSettingsImage.ImageEffectPresets);
                 }
+
+                else if (Program.Settings.AllowQuickTaskImageEffectPresets && taskSettingsImage.DefaultImageEffectPresetOverride.HasValue)
+                {
+                    var defaultTaskSettingsImage = TaskSettings.GetDefaultTaskSettings().ImageSettings;
+
+                    if (defaultTaskSettingsImage.ImageEffectPresets.IsValidIndex(taskSettingsImage.DefaultImageEffectPresetOverride.Value))
+                    {
+                        imageEffect = defaultTaskSettingsImage.ImageEffectPresets[taskSettingsImage.DefaultImageEffectPresetOverride.Value];
+                    }
+                }
+
                 else if (taskSettingsImage.ImageEffectPresets.IsValidIndex(taskSettingsImage.SelectedImageEffectPreset))
                 {
                     imageEffect = taskSettingsImage.ImageEffectPresets[taskSettingsImage.SelectedImageEffectPreset];
