@@ -188,7 +188,7 @@ namespace ShareX.ScreenCaptureLib
             else
             {
                 FormBorderStyle = FormBorderStyle.Sizable;
-                MinimumSize = new Size(800, 550);
+                MinimumSize = new Size(1015, 550);
 
                 if (Options.ImageEditorStartMode == ImageEditorStartMode.PreviousState)
                 {
